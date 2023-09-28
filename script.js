@@ -18,13 +18,13 @@ function calculateBMI(weightData, heightData){
 
 function checkBMICategory(BMI){
     if(BMI < 18.5){
-        return `Your BMI is ${BMI} which means you are Underweight`;
+        return `Your BMI is <b>${BMI}</b> which means you are <b>Underweight</b>`;
     }else if(BMI >= 18.5 && BMI < 25){
-        return `Your BMI is ${BMI} which means you are Normal`;
+        return `Your BMI is <b>${BMI}</b> which means you are <b>Normal</b>`;
     }else if(BMI >= 25 && BMI < 30){
-        return `Your BMI is ${BMI} which means you are Overweight`;
+        return `Your BMI is <b>${BMI}</b> which means you are <b>Overweight</b>`;
     }else if(BMI >= 30){
-        return `Your BMI is ${BMI} which means you are Obesity`;
+        return `Your BMI is <b>${BMI}</b> which means you are <b>Obesity</b>`;
     }
 }
 
@@ -32,8 +32,13 @@ function submit(event) {
     event.preventDefault();
     let dataInput = getInputData();
     const resultParagraph = document.getElementById('result');
-    let resultBMI = calculateBMI(dataInput.weight, dataInput.height);
-    resultParagraph.innerText = checkBMICategory(resultBMI); // Tampilkan paragraf hasil
+
+    if(dataInput.weight == "" || dataInput.height == ""){
+        resultParagraph.innerText = "Please enter the data correctly"
+    }else {
+        let resultBMI = calculateBMI(dataInput.weight, dataInput.height);
+        resultParagraph.innerHTML = checkBMICategory(resultBMI); // Tampilkan paragraf hasil
+    }
 }
 
 const submitBtn = document.getElementById('submit');
