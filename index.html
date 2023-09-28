@@ -3,9 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>BMI Calculator</title>
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Check your BMI</h1>
+        <p>Enter your weight and height below to check your BMI results</p>
+        <form action="">
+            <label for="weight">Put your weight on here (KG)</label>
+            <input type="text" id="weight">
+            <label for="height">Put your height on here (CM)</label>
+            <input type="text" id="height">
+
+            <button>Calculate BMI</button>
+            <span id="result"></span>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
