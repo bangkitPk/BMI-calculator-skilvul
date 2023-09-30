@@ -16,7 +16,7 @@ function calculateBMI(weightData, heightData){
     return Number((weightData/(heightData/100) ** 2).toFixed(1));
 }
 
-function checkBMICategory(BMI){
+function getBMICategory(BMI){
     if(BMI < 18.5){
         return `Your BMI is <b>${BMI}</b> which means you are <b>Underweight</b>`;
     }else if(BMI >= 18.5 && BMI < 25){
@@ -37,7 +37,7 @@ function submit(event) {
         resultParagraph.innerText = "Please enter the data correctly"
     }else {
         let resultBMI = calculateBMI(dataInput.weight, dataInput.height);
-        resultParagraph.innerHTML = checkBMICategory(resultBMI); // Tampilkan paragraf hasil
+        resultParagraph.innerHTML = getBMICategory(resultBMI); // Tampilkan paragraf hasil
     }
 }
 
